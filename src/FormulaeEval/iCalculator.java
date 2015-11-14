@@ -1,4 +1,8 @@
+package FormulaeEval;
+
+
 import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -8,8 +12,13 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.UIManager;
+
+import main.MainMethod;
+
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class iCalculator {
 
@@ -79,6 +88,13 @@ public class iCalculator {
 		frmIcalculator.getContentPane().add(btnNormalCalculator);
 		
 		JButton button = new JButton("Normal Calculator");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmIcalculator.dispose();
+				MainMethod nw = new MainMethod();
+				MainMethod.Redirect();
+			}
+		});
 		button.setForeground(Color.BLACK);
 		button.setFont(UIManager.getFont("Button.font"));
 		button.setBackground(Color.WHITE);
@@ -86,3 +102,4 @@ public class iCalculator {
 		frmIcalculator.getContentPane().add(button);
 	}
 }
+

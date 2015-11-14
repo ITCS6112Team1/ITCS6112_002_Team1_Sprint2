@@ -1,8 +1,11 @@
+package FormulaeEval;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.border.EmptyBorder;
 
+import SQL.sqlConnection;
 import net.proteanit.sql.DbUtils;
 
 import java.sql.*;
@@ -203,3 +206,4 @@ public class Formulae extends JFrame {
 		contentPane.add(btnAppFormulae);
 	}
 }
+

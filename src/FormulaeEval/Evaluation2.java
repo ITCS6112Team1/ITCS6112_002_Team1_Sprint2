@@ -1,17 +1,19 @@
+package FormulaeEval;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Evaluation extends JFrame {
+public class Evaluation2 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -26,7 +28,7 @@ public class Evaluation extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Evaluation frame = new Evaluation();
+					Evaluation2 frame = new Evaluation2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,48 +36,58 @@ public class Evaluation extends JFrame {
 			}
 		});
 	}
-
+	
 	public void CloseFrame(){
 	    super.dispose();
 	}
+
 	/**
 	 * Create the frame.
 	 */
-	public Evaluation() {
+	public Evaluation2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 357, 172);
+		setBounds(100, 100, 364, 178);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblA = new JLabel("a");
-		lblA.setBounds(28, 48, 46, 14);
+		lblA.setBounds(42, 53, 46, 14);
 		contentPane.add(lblA);
 		
 		textField = new JTextField();
-		textField.setBounds(38, 45, 86, 20);
+		textField.setBounds(52, 50, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblB = new JLabel("b");
-		lblB.setBounds(134, 48, 46, 14);
-		contentPane.add(lblB);
+		JLabel lblNewLabel = new JLabel("b");
+		lblNewLabel.setBounds(148, 53, 46, 14);
+		contentPane.add(lblNewLabel);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(144, 45, 86, 20);
+		textField_1.setBounds(158, 50, 86, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Calculate");
-		btnNewButton.addActionListener(new ActionListener() {
+		JLabel lblResult = new JLabel("Result");
+		lblResult.setBounds(79, 104, 46, 14);
+		contentPane.add(lblResult);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(114, 101, 86, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JButton btnCalculate = new JButton("Calculate");
+		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int val1,val2,ans;
 				try{
 					val1=Integer.parseInt(textField.getText());
 					val2=Integer.parseInt(textField_1.getText());
 
-					ans=((val1+val2)*(val1-val2));
+					ans=((val1-val2)*((val1*val1)+(val1*val2)+(val2*val2)));
 					textField_2.setText(Integer.toString(ans));
 				}
 
@@ -86,22 +98,13 @@ public class Evaluation extends JFrame {
 
 			}
 		});
-		btnNewButton.setBounds(240, 44, 89, 23);
-		contentPane.add(btnNewButton);
-		
-		JLabel lblResult = new JLabel("Result");
-		lblResult.setBounds(69, 91, 46, 14);
-		contentPane.add(lblResult);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(120, 88, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		btnCalculate.setBounds(254, 49, 89, 23);
+		contentPane.add(btnCalculate);
 		
 		btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
+try{
 					
 					Formulae frm=new Formulae();
 					frm.setVisible(true);
@@ -114,7 +117,8 @@ public class Evaluation extends JFrame {
 				}
 			}
 		});
-		btnBack.setBounds(0, 0, 74, 23);
+		btnBack.setBounds(-1, 0, 72, 23);
 		contentPane.add(btnBack);
 	}
 }
+

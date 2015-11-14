@@ -1,3 +1,5 @@
+package SQL;
+
 import java.sql.*;
 import javax.swing.*;
 
@@ -20,3 +22,4 @@ public class sqlConnection {
 	}
 
 }
+
